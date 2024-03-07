@@ -16,7 +16,7 @@
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 no-pad">
                 <header class="entry-header">
                     <?php
-                        the_title( '<h1 class="entry-title">', '</h1>' );
+                        the_title( '<h1 class="entry-title"><a href="' . esc_url( get_the_permalink() ) . '">', '</a></h1>' );
 
                     if ( 'post' === get_post_type() ) : ?>
                     <div class="entry-meta">
