@@ -75,13 +75,26 @@ function slightly_setup() {
   
     // Suport for wide alignment in Gutenberg
     add_theme_support( 'align-wide' );
+
+    add_filter( 'query_loop_block_query_vars', function( $query, $block ) {
+	    if ( empty($block->context['query']['taxQuery']['post_format'])) { 
+		    $query['tax_query'] = array(
+			    array(
+				    'taxonomy' => 'post_format',
+				    'operator' => 'NOT EXISTS',
+			    ),
+		    );
+	    }
+	    return $query;
+    }, 10, 2);
+
 }
 endif;
 add_action( 'after_setup_theme', 'slightly_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- *
+ *:sp
  * Priority 0 to make it available to lower priority callbacks.
  *
  * @global int $content_width
