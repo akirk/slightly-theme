@@ -172,3 +172,28 @@ function slightly_prefix_category_title( $title ) {
 }
 add_filter( 'get_the_archive_title', 'slightly_prefix_category_title' );
 
+function restrict_rest_builtin_endpoints_for_guests( $errors ) {
+	if ( is_wp_error( $errors ) ) {
+		return $errors;
+	}
+	if ( ! is_user_logged_in() ) {
+		$restricted_endpoints = array(
+			'/wp/v2/media',
+			'/wp/v2/users',
+		);
+
+		$request_uri = $_SERVER['REQUEST_URI'];
+		$prefix = '/' . rest_get_url_prefix();
+
+		foreach ( $restricted_endpoints as $endpoint ) {
+			if ( strpos( $request_uri, $prefix . $endpoint ) === 0 ) {
+				return new WP_Error( 'rest_not_logged_in', 'You must be logged in to access this endpoint.', array( 'status' => 401 ) );
+			}
+		}
+	}
+
+	return $errors;
+}
+
+add_filter( 'rest_authentication_errors', 'restrict_rest_builtin_endpoints_for_guests' );
+

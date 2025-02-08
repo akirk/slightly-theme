@@ -38,7 +38,7 @@ get_header(); ?>
     return $alt;
 } ?>
 
-<?php if( slightly_page_featured_image() !== 'undefined' && slightly_page_featured_alt() !== 'undefined' ) : ?>
+<?php if( false && slightly_page_featured_image() !== 'undefined' && slightly_page_featured_alt() !== 'undefined' ) : ?>
     <div class="pageBannerImage">
         <img src="<?php echo esc_url ( slightly_page_featured_image() ); ?>" alt="<?php echo esc_attr( slightly_page_featured_alt() ); ?>" class="pageBannerImage__image">
     </div>
