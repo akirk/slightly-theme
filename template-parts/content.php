@@ -31,7 +31,7 @@
     $slightly_thumb_id = get_post_thumbnail_id($post->ID);
     $feat_image = wp_get_attachment_url( $slightly_thumb_id );
     $alt = get_post_meta($slightly_thumb_id, '_wp_attachment_image_alt', true); ?>
-<?php if( $feat_image ) : ?>
+<?php if( false&&$feat_image ) : ?>
     <img src="<?php echo esc_url ( $feat_image ); ?>" alt="<?php echo esc_attr( $alt ); ?>" class="featured-image">
 <?php endif; ?>
                     

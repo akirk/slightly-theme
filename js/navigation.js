@@ -126,4 +126,31 @@
 			}
 		}
 	}( container ) );
+
+	// add "copy to clipboard" functionality for the css selector ".copy-code code"
+	document.addEventListener('DOMContentLoaded', function() {
+		var copyCode = document.querySelectorAll('.copy-code code');
+		for (var i = 0; i < copyCode.length; i++) {
+			copyCode[i].style.cursor = 'pointer';
+			copyCode[i].addEventListener('click', async function( e ) {
+				const el = e.target;
+				navigator.clipboard.writeText(this.textContent).then(function() {
+					var tooltip = document.createElement('div');
+					tooltip.textContent = 'Copied!';
+					tooltip.style.position = 'absolute';
+					tooltip.style.top = ( el.getBoundingClientRect().top - 30) + 'px';
+					tooltip.style.left = ( el.getBoundingClientRect().left + 30 )+ 'px';
+					tooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+					tooltip.style.color = 'white';
+					tooltip.style.padding = '0.2em';
+					tooltip.style.borderRadius = '0.2em';
+					tooltip.style.zIndex = '1000';
+					el.append(tooltip);
+					setTimeout(function() {
+						tooltip.remove();
+					}, 1000);
+				});
+			});
+		}
+	});
 } )();

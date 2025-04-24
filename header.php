@@ -15,6 +15,13 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
+<?php
+    $slightly_thumb_id = get_post_thumbnail_id($post->ID);
+    $feat_image = wp_get_attachment_url( $slightly_thumb_id );
+    $alt = get_post_meta($slightly_thumb_id, '_wp_attachment_image_alt', true); ?>
+<?php if( $feat_image ) : ?>
+	<meta property="og:image" content="<?php echo esc_url ( $feat_image ); ?>" />
+<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>

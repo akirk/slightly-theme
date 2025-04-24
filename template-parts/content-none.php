@@ -6,6 +6,12 @@
  *
  * @package slightly
  */
+add_filter( 'get_search_query', function( $query ) {
+	if ( ! $query ) {
+		return urldecode( strtr( get_query_var( 'tag' ), '-', ' ' ) ); 
+	}
+	return $query;
+} );
 
 ?>
 

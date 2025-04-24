@@ -9,10 +9,11 @@
 
 add_filter( 'get_search_query', function( $query ) {
 	if ( is_404() ) {
-		$query = urldecode( get_query_var( 'pagename' ) );
+		$query = urldecode( strtr( get_query_var( 'pagename' ), '-', ' ' ));
 	}
 	return $query;
 } );
+
 get_header(); ?>
 
 <div class="row row--index">
