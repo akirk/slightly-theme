@@ -289,3 +289,22 @@
         margin-bottom: 2em;
     }
 }
+
+#footer-navigation {
+    display: inline-block;
+    div.menu-footer-container {
+       display: inline-block;
+   }
+    ul {
+        display: inline-block;
+
+    }
+    li {
+        display: inline-block;
+        margin-right: 2em;
+    }
+}
+.site-info {
+    display: inline-block;
+    float: right;
+}
