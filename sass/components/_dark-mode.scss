@@ -200,13 +200,18 @@
 }
 
 // Additional aggressive overrides for SyntaxHighlighter textarea
+// Target all textareas in any SyntaxHighlighter context
 .syntaxhighlighter textarea,
 .syntaxhighlighter-textarea,
 textarea.syntaxhighlighter-textarea,
-div[class*="syntaxhighlighter"] textarea {
+div[class*="syntaxhighlighter"] textarea,
+div[id*="highlighter"] textarea,
+.container textarea,
+div.container textarea {
   background-color: var(--color-bg-secondary) !important;
   color: var(--color-text-primary) !important;
   border: 1px solid var(--color-border) !important;
+  font-family: monospace !important;
 }
 
 // Additional overrides for common code highlighting plugins
