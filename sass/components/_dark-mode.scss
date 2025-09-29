@@ -214,7 +214,9 @@ textarea[data-tc-id],
 td.code textarea,
 td.code div.container textarea,
 // Match the exact specificity that's overriding us
-.syntaxhighlighter table td.code .container textarea {
+.syntaxhighlighter table td.code .container textarea,
+// Use Gutenberg wrapper for even higher specificity
+.wp-block-syntaxhighlighter-code .syntaxhighlighter table td.code .container textarea {
   background-color: var(--color-bg-secondary) !important;
   background: var(--color-bg-secondary) !important;
   color: var(--color-text-primary) !important;
