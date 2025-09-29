@@ -1,0 +1,52 @@
+/*--------------------------------------------------------------
+# Dark Mode Toggle
+--------------------------------------------------------------*/
+
+.dark-mode-toggle {
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 16px 20px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-out;
+  margin-left: auto;
+
+  &:focus {
+    outline: 2px solid var(--color-text-accent);
+  }
+
+  &:hover {
+    background-color: var(--color-bg-secondary);
+  }
+
+  // SVG icon styles
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-text-primary);
+    transition: opacity 0.2s ease-out;
+  }
+
+  // Default state: show moon icon (for switching to dark mode)
+  .sun-icon {
+    display: none;
+  }
+
+  .moon-icon {
+    display: block;
+  }
+}
+
+// In dark mode: show sun icon (for switching to light mode)
+@media (prefers-color-scheme: dark) {
+  .dark-mode-toggle {
+    .sun-icon {
+      display: block;
+    }
+
+    .moon-icon {
+      display: none;
+    }
+  }
+}

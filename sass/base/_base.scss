@@ -13,19 +13,18 @@ button,
 input,
 select,
 textarea {
-	color: $color__text-main;
+	color: var(--color-text-primary);
 	font-family: $font__main;
 	@include font-size(1);
 	line-height: $font__line-height-body;
-    // clean this up
-	background: $color__white;
+	background: var(--color-bg-primary);
     font-size: 16px;
 }
 
 blockquote, q {
-    border-left: 1px solid $color__lightgray;
+    border-left: 1px solid var(--color-border-light);
     padding-left: 1em;
-    
+
 	quotes: "" "";
 
 	&:before,
@@ -35,7 +34,7 @@ blockquote, q {
 }
 
 hr {
-	background-color: $color__regulargray;
+	background-color: var(--color-border);
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
