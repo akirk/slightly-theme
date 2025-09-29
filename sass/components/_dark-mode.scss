@@ -55,136 +55,139 @@
 # Dark Mode Overrides for Third-party Plugins
 --------------------------------------------------------------*/
 
-// Override SyntaxHighlighter plugin with specific selectors
-.syntaxhighlighter {
-  background-color: var(--color-bg-secondary) !important;
-  color: var(--color-text-primary) !important;
-
-  // Override line backgrounds
-  .line.alt1,
-  .line.alt2 {
+// Override SyntaxHighlighter plugin with higher specificity
+.wp-block-syntaxhighlighter-code,
+.syntaxhighlighter-container {
+  .syntaxhighlighter {
     background-color: var(--color-bg-secondary) !important;
-  }
-
-  // Override highlighted lines
-  .line.highlighted.alt1,
-  .line.highlighted.alt2 {
-    background-color: var(--color-border) !important;
-  }
-
-  .line.highlighted.number {
     color: var(--color-text-primary) !important;
-  }
 
-  // Override table caption
-  table caption {
-    color: var(--color-text-primary) !important;
-  }
-
-  // Override gutter
-  .gutter {
-    color: var(--color-text-secondary) !important;
-
-    .line {
-      border-right: 3px solid var(--color-text-accent) !important;
+    // Override line backgrounds
+    .line.alt1,
+    .line.alt2 {
+      background-color: var(--color-bg-secondary) !important;
     }
 
-    .line.highlighted {
-      background-color: var(--color-text-accent) !important;
-      color: var(--color-bg-primary) !important;
+    // Override highlighted lines
+    .line.highlighted.alt1,
+    .line.highlighted.alt2 {
+      background-color: var(--color-border) !important;
     }
-  }
 
-  // Override toolbar
-  .toolbar {
-    color: var(--color-text-primary) !important;
-    background: var(--color-text-accent) !important;
-    border: none !important;
+    .line.highlighted.number {
+      color: var(--color-text-primary) !important;
+    }
 
-    a {
-      color: var(--color-bg-primary) !important;
+    // Override table caption
+    table caption {
+      color: var(--color-text-primary) !important;
+    }
 
-      &:hover {
-        color: var(--color-text-secondary) !important;
+    // Override gutter
+    .gutter {
+      color: var(--color-text-secondary) !important;
+
+      .line {
+        border-right: 3px solid var(--color-text-accent) !important;
+
+        &.highlighted {
+          background-color: var(--color-text-accent) !important;
+          color: var(--color-bg-primary) !important;
+        }
       }
     }
-  }
 
-  // Override collapsed toolbar
-  &.collapsed .toolbar {
-    color: var(--color-text-accent) !important;
-    background: var(--color-bg-primary) !important;
-    border: 1px solid var(--color-text-accent) !important;
+    // Override toolbar
+    .toolbar {
+      color: var(--color-text-primary) !important;
+      background: var(--color-text-accent) !important;
+      border: none !important;
 
-    a {
+      a {
+        color: var(--color-bg-primary) !important;
+
+        &:hover {
+          color: var(--color-text-secondary) !important;
+        }
+      }
+    }
+
+    // Override collapsed toolbar
+    &.collapsed .toolbar {
       color: var(--color-text-accent) !important;
+      background: var(--color-bg-primary) !important;
+      border: 1px solid var(--color-text-accent) !important;
 
-      &:hover {
-        color: var(--color-text-secondary) !important;
+      a {
+        color: var(--color-text-accent) !important;
+
+        &:hover {
+          color: var(--color-text-secondary) !important;
+        }
       }
     }
-  }
 
-  // Override syntax colors for dark mode
-  .plain,
-  .plain a {
-    color: var(--color-text-primary) !important;
-  }
+    // Override syntax colors for dark mode
+    .plain,
+    .plain a {
+      color: var(--color-text-primary) !important;
+    }
 
-  .comments,
-  .comments a {
-    color: #4ade80 !important; // Green for comments
-  }
+    .comments,
+    .comments a {
+      color: #4ade80 !important;
+    }
 
-  .string,
-  .string a {
-    color: #60a5fa !important; // Blue for strings
-  }
+    .string,
+    .string a {
+      color: #60a5fa !important;
+    }
 
-  .keyword {
-    color: #a78bfa !important; // Purple for keywords
-    font-weight: bold !important;
-  }
+    .keyword {
+      color: #a78bfa !important;
+      font-weight: bold !important;
+    }
 
-  .preprocessor {
-    color: var(--color-text-secondary) !important;
-  }
+    .preprocessor {
+      color: var(--color-text-secondary) !important;
+    }
 
-  .variable {
-    color: #fbbf24 !important; // Yellow for variables
-  }
+    .variable {
+      color: #fbbf24 !important;
+    }
 
-  .value {
-    color: #34d399 !important; // Green for values
-  }
+    .value {
+      color: #34d399 !important;
+    }
 
-  .functions {
-    color: #f472b6 !important; // Pink for functions
-  }
+    .functions {
+      color: #f472b6 !important;
+    }
 
-  .constants {
-    color: #06b6d4 !important; // Cyan for constants
-  }
+    .constants {
+      color: #06b6d4 !important;
+    }
 
-  .script {
-    font-weight: bold !important;
-    color: #a78bfa !important; // Purple for script
-    background-color: transparent !important;
-  }
+    .script {
+      font-weight: bold !important;
+      color: #a78bfa !important;
+      background-color: transparent !important;
+    }
 
-  .color1,
-  .color1 a {
-    color: var(--color-text-secondary) !important;
-  }
+    .color1,
+    .color1 a {
+      color: var(--color-text-secondary) !important;
+    }
 
-  .color2,
-  .color2 a {
-    color: #f472b6 !important; // Pink
-  }
+    .color2,
+    .color2 a {
+      color: #f472b6 !important;
+    }
 
-  .color3,
-  .color3 a {
-    color: #ef4444 !important; // Red
+    .color3,
+    .color3 a {
+      color: #ef4444 !important;
+    }
   }
 }
 
