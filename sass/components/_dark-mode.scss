@@ -50,3 +50,20 @@
     }
   }
 }
+
+/*--------------------------------------------------------------
+# Dark Mode Overrides for Third-party Plugins
+--------------------------------------------------------------*/
+
+// Override syntax highlighter plugin background
+.syntaxhighlighter {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+// Additional overrides for common code highlighting plugins
+.hljs,
+.highlight,
+.wp-block-code {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-primary) !important;
+}

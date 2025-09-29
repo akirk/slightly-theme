@@ -25,7 +25,7 @@ h2, h2, h3, h4, h5, h6, .read-next span {
 
 h5,
 .read-next span {
-    color: $color__middlegray;
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
@@ -52,7 +52,7 @@ address {
 }
 
 pre {
-	background-color: $color__lightgray;
+	background-color: var(--color-bg-secondary);
 	font-family: $font__pre;
 	@include font-size(0.9375);
 	line-height: $font__line-height-pre;
@@ -66,18 +66,18 @@ pre {
 code, kbd, tt, var {
 	font-family: $font__code;
 	@include font-size(0.9375);
-    background-color: $color__lightgray;
+    background-color: var(--color-bg-secondary);
     padding: 3px 4px;
     border-radius: 2px;
 }
 
 abbr, acronym {
-	border-bottom: 1px dotted $color__middlegray;
+	border-bottom: 1px dotted var(--color-text-secondary);
 	cursor: help;
 }
 
 mark, ins {
-	background: $color__lightyellow;
+	background: var(--color-highlight);
 	text-decoration: none;
 }
 

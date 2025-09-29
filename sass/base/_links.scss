@@ -1,42 +1,42 @@
 a {
-	color: $color__darkgray;
+	color: var(--color-text-accent);
     text-decoration: none;
 
 	&:visited { }
-    
+
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__middlegray;
+		color: var(--color-text-secondary);
 	}
 	&:focus {
-		outline: 2px solid $color__darkgray;
+		outline: 2px solid var(--color-text-accent);
 	}
 	&:hover,
 	&:active {
 		outline: 0;
-        border-bottom-color: $color__darkgray;
+        border-bottom-color: var(--color-text-accent);
 	}
 }
 
 .edit-link a {
-    color: $color__white !important;
+    color: var(--color-bg-primary) !important;
     font-size: 12px;
     letter-spacing: 1px;
     padding: 6px 10px;
     border-radius: 3px;
     text-transform: uppercase;
-    background: $color__darkgray;
+    background: var(--color-text-accent);
     border: none;
     font-weight: bold;
     transition: all .2s ease-out;
-    
+
     &:hover {
         border: none;
-        color: $color__white !important;
-        background-color: $color__middlegray;
+        color: var(--color-bg-primary) !important;
+        background-color: var(--color-text-secondary);
         transition: all .2s ease-out;
-        
+
         &:after {
             display: none;
         }
@@ -49,12 +49,12 @@ span a,
 .nav-next a,
 .entry-content a {
     position: relative;
-    border-bottom: 2px solid $color__regulargray;
+    border-bottom: 2px solid var(--color-border);
     transition: all .2s ease-out;
     font-weight: bold;
-    
+
 	&:active {
-        border-bottom-color: $color__darkgray;
+        border-bottom-color: var(--color-text-accent);
 	}
     &:after {
         position: absolute;
@@ -64,7 +64,7 @@ span a,
         height: 2px;
         content: '';
         transform: scaleX(0);
-        background-color: $color__black;
+        background-color: var(--color-text-accent);
         transition: all .2s ease-out;
     }
 
@@ -73,12 +73,12 @@ span a,
     }
 
     &:hover {
-        border-bottom: 2px solid $color__darkgray;
+        border-bottom: 2px solid var(--color-text-accent);
         transition-delay: .2s;
-        color: $color__darkgray;
+        color: var(--color-text-accent);
     }
-    
+
 	&:focus {
-		outline: 2px solid $color__darkgray;
+		outline: 2px solid var(--color-text-accent);
 	}
 }
