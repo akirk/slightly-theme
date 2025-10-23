@@ -14,12 +14,32 @@
         return;
     }
 
-    function updateIcon() {
+    function updateIcon(showAutoIcon = false) {
         const currentScheme = document.documentElement.style.colorScheme;
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        lightIcon.style.display = currentScheme === 'light' ? 'block' : 'none';
-        darkIcon.style.display = currentScheme === 'dark' ? 'block' : 'none';
-        autoIcon.style.display = (!currentScheme || currentScheme === '') ? 'block' : 'none';
+        if (currentScheme === 'light') {
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+            autoIcon.style.display = 'none';
+        } else if (currentScheme === 'dark') {
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+            autoIcon.style.display = 'none';
+        } else {
+            // Auto mode
+            if (showAutoIcon) {
+                // Show auto icon when user clicks into auto mode
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'none';
+                autoIcon.style.display = 'block';
+            } else {
+                // On page load, show sun/moon based on system preference
+                lightIcon.style.display = prefersDark ? 'none' : 'block';
+                darkIcon.style.display = prefersDark ? 'block' : 'none';
+                autoIcon.style.display = 'none';
+            }
+        }
     }
 
     // Check if user has a preference stored
@@ -30,7 +50,8 @@
         document.documentElement.style.colorScheme = currentTheme;
     }
 
-    updateIcon();
+    // On page load, don't show auto icon
+    updateIcon(false);
 
     // Toggle theme function (three-state: light → dark → auto)
     function toggleTheme() {
@@ -40,17 +61,18 @@
             // Light → Dark
             document.documentElement.style.colorScheme = 'dark';
             localStorage.setItem('theme', 'dark');
+            updateIcon(false);
         } else if (currentScheme === 'dark') {
             // Dark → Auto (system preference)
             document.documentElement.style.colorScheme = '';
             localStorage.removeItem('theme');
+            updateIcon(true); // Show auto icon when clicking into auto mode
         } else {
             // Auto → Light
             document.documentElement.style.colorScheme = 'light';
             localStorage.setItem('theme', 'light');
+            updateIcon(false);
         }
-
-        updateIcon();
     }
 
     // Add click event listener
@@ -62,6 +84,7 @@
         if (!localStorage.getItem('theme')) {
             // Reset to follow system preference
             document.documentElement.style.colorScheme = '';
+            updateIcon(false);
         }
     });
 
