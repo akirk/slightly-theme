@@ -73,6 +73,8 @@
             localStorage.setItem('theme', 'light');
             updateIcon(false);
         }
+
+        darkModeToggle.blur();
     }
 
     // Add click event listener
