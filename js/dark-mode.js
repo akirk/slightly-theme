@@ -6,9 +6,20 @@
     'use strict';
 
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const lightIcon = document.querySelector('.light-icon');
+    const darkIcon = document.querySelector('.dark-icon');
+    const autoIcon = document.querySelector('.auto-icon');
 
     if (!darkModeToggle) {
         return;
+    }
+
+    function updateIcon() {
+        const currentScheme = document.documentElement.style.colorScheme;
+
+        lightIcon.style.display = currentScheme === 'light' ? 'block' : 'none';
+        darkIcon.style.display = currentScheme === 'dark' ? 'block' : 'none';
+        autoIcon.style.display = (!currentScheme || currentScheme === '') ? 'block' : 'none';
     }
 
     // Check if user has a preference stored
@@ -19,27 +30,27 @@
         document.documentElement.style.colorScheme = currentTheme;
     }
 
-    // Toggle theme function
+    updateIcon();
+
+    // Toggle theme function (three-state: light → dark → auto)
     function toggleTheme() {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const currentScheme = document.documentElement.style.colorScheme;
 
-        // Determine current effective theme
-        let effectiveTheme;
-        if (currentScheme) {
-            effectiveTheme = currentScheme;
-        } else {
-            effectiveTheme = prefersDark ? 'dark' : 'light';
-        }
-
-        // Toggle to opposite theme
-        if (effectiveTheme === 'dark') {
-            document.documentElement.style.colorScheme = 'light';
-            localStorage.setItem('theme', 'light');
-        } else {
+        if (currentScheme === 'light') {
+            // Light → Dark
             document.documentElement.style.colorScheme = 'dark';
             localStorage.setItem('theme', 'dark');
+        } else if (currentScheme === 'dark') {
+            // Dark → Auto (system preference)
+            document.documentElement.style.colorScheme = '';
+            localStorage.removeItem('theme');
+        } else {
+            // Auto → Light
+            document.documentElement.style.colorScheme = 'light';
+            localStorage.setItem('theme', 'light');
         }
+
+        updateIcon();
     }
 
     // Add click event listener

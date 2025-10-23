@@ -28,26 +28,11 @@
     transition: opacity 0.2s ease-out;
   }
 
-  // Default state: show moon icon (for switching to dark mode)
-  .sun-icon {
+  // All icons hidden by default, JavaScript controls visibility
+  .light-icon,
+  .dark-icon,
+  .auto-icon {
     display: none;
-  }
-
-  .moon-icon {
-    display: block;
-  }
-}
-
-// In dark mode: show sun icon (for switching to light mode)
-@media (prefers-color-scheme: dark) {
-  .dark-mode-toggle {
-    .sun-icon {
-      display: block;
-    }
-
-    .moon-icon {
-      display: none;
-    }
   }
 }
 
