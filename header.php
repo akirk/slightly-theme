@@ -25,6 +25,10 @@ if ( $post ) {
     if ( $feat_image ) {
 	    ?><meta property="og:image" content="<?php echo esc_url ( $feat_image ); ?>" /><?php
     }
+    $excerpt = get_the_excerpt();
+    if ( $excerpt ) {
+	?><meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>" /><?php
+    }
 }
 ?>
 </head>
