@@ -9,7 +9,7 @@
         letter-spacing: 2px;
         font-size: 14px;
         position: relative;
-        
+
         &:after {
             position: absolute;
             bottom: 0;
@@ -18,23 +18,24 @@
             height: 2px;
             content: '';
             transform: scaleX(0);
-            background-color: $color__black;
+            background-color: var(--color-text-accent);
             transition: all .2s ease-out;
         }
-        
+
         &:hover:after {
             transform: scaleX(1);
         }
-        
+
         &:hover {
-            color: $color__darkgray;
+            color: var(--color-text-accent);
+            background-color: var(--color-bg-secondary);
         }
 	}
-    
+
     .current_page_item > a {
-        -webkit-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-        -moz-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-        box-shadow: inset 0px -2px 0px 0px $color__darkgray;
+        -webkit-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+        -moz-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+        box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
     }
 }
 
@@ -46,18 +47,24 @@
 .menu-toggle {
     height: 100%;
     border: none;
-    
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 14px;
-    padding-left: 0;
-    padding-right: 0;
-    color: $color__darkgray;
-    background: $color__white;
-    
+    padding: 16px 20px;
+    color: var(--color-text-primary);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        stroke: var(--color-text-primary);
+    }
+
+    &:hover {
+        background-color: var(--color-bg-secondary);
+    }
+
     &:focus {
-        outline: 2px solid $color__darkgray;
+        outline: 2px solid var(--color-text-accent);
     }
 }
 
@@ -75,10 +82,10 @@
 .main-navigation > div {
     position: absolute;
     left: 0;
-    background: $color__white;
+    background: var(--color-bg-primary);
     width: 100%;
     box-shadow: 0 12px 50px rgba(0, 0, 0, 0.05);
-    border: 1px solid $color__lightgray;
+    border: 1px solid var(--color-border-light);
     z-index: 9999;
     
     visibility: hidden;
@@ -140,8 +147,8 @@
                // left: -999em;
                 left: 0;
                 z-index: 99999;
-                border: 1px solid $color__lightgray;
-                background: $color__white;
+                border: 1px solid var(--color-border-light);
+                background: var(--color-bg-primary);
                 width: 100%;
                 width: 220px;
                 visibility: hidden;
@@ -202,15 +209,15 @@
         }
 
         .current_page_ancestor > a, .current_page_parent > a {
-            -webkit-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-            -moz-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-            box-shadow: inset 0px -2px 0px 0px $color__darkgray;
+            -webkit-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+            -moz-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+            box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
         }
 
         .current-menu-parent {
-            -webkit-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-            -moz-box-shadow: inset 0px -2px 0px 0px $color__darkgray;
-            box-shadow: inset 0px -2px 0px 0px $color__darkgray;
+            -webkit-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+            -moz-box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
+            box-shadow: inset 0px -2px 0px 0px var(--color-text-accent);
         }
     }
 
