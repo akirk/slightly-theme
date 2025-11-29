@@ -56,17 +56,29 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     padding-left: .5rem;
     padding-right: .5rem;
-}
 
+    .main-navigation {
+        order: -1;
+    }
+
+    .dark-mode-toggle {
+        margin-left: auto;
+    }
+}
 
 @media screen and (min-width: 37.5em) {
     .site-header-col {
         justify-content: flex-start;
+
+        .main-navigation {
+            order: 0;
+        }
     }
-    
+
     .site-title a {
         margin-right: 20px;
     }
