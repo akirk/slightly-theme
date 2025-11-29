@@ -77,6 +77,10 @@ function slightly_setup() {
     // Suport for wide alignment in Gutenberg
     add_theme_support( 'align-wide' );
 
+    // Add editor styles support
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'style.css' );
+
     add_filter( 'query_loop_block_query_vars', function( $query, $block ) {
 	    if ( empty($block->context['query']['taxQuery']['post_format'])) { 
 		    $query['tax_query'] = array(
