@@ -75,13 +75,13 @@ function slightly_customize_colors() {
         }
       
         .menu-toggle {
-          color: <?php echo esc_html( $bodytext_color ); ?>;
-          background-color: <?php echo esc_html( $background_color ); ?>;
+          color: var(--color-text-primary);
+          background-color: var(--color-bg-primary);
         }
       
         #primary-menu {
-          color: <?php echo esc_html( $bodytext_color ); ?>;
-          background-color: <?php echo esc_html( $background_color ); ?>;
+          color: var(--color-text-primary);
+          background-color: var(--color-bg-primary);
         }
     </style>
 
