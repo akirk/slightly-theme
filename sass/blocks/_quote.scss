@@ -1,7 +1,10 @@
-.wp-block-quote {
-    border-left: 3px solid var(--color-border);
-    padding-left: 1.5em;
-    margin: 1.5em 0;
+.wp-block-quote,
+.editor-styles-wrapper .wp-block-quote {
+    border-left: 3px solid var(--color-border) !important;
+    padding-left: 1.5em !important;
+    margin: 1.5em 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     color: var(--color-text-secondary);
     font-style: italic;
 
@@ -21,8 +24,8 @@
     }
 
     &.is-style-large {
-        padding-left: 2em;
-        border-left-width: 4px;
+        padding-left: 2em !important;
+        border-left-width: 4px !important;
 
         p {
             font-size: 1.25em;
